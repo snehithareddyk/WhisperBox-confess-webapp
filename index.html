@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confessions Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <header>
+        <div class="logo">WhisperBoxx</div>
+        <div class="search-section">
+            <input type="text" id="search-bar" placeholder="Search confessions..." oninput="searchConfessions()">
+
+        </div>
+        <div class="auth-buttons">
+            <button class="add-confession" onclick="openModal()"><i class='bx bx-plus'></i>New</button>
+            <button onclick="openSignInModal()">SignUp/SignIn</button>
+        </div>
+    </header>
+    <main>
+
+        <section class="categories">
+            <h2 style="text-align:center;color:#8E44AD;">Categories</h2>
+            <div class="category">
+                <button onclick="filterConfessions('friendship')">Friendship</button>
+                <button onclick="filterConfessions('love')">Love</button>
+                <button onclick="filterConfessions('life')">Life</button>
+                <button onclick="filterConfessions('mental-health')">Mental Health</button>
+                <button onclick="filterConfessions('regrets')">Regrets</button>
+                <button onclick="filterConfessions('embarassed-moments')">Embarassing Moments</button>
+                <button onclick="filterConfessions('all')">All</button>
+            </div>
+        </section>
+
+        <section class="confessions-list" id="confessions-list">
+            <!-- Confessions will be displayed here -->
+        </section>
+        <button class="clear-all-button" id="clear-all" onclick="clearAllConfessions()">Clear All Confessions</button>
+
+
+    </main>
+
+    <!-- Modal for adding new confession -->
+    <div id="confessionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Add New Confession</h2>
+            <form id="confessionForm">
+                <label for="category">Choose your category!</label>
+                <select id="category" required>
+                    <option value="friendship">Friendship</option>
+                    <option value="love">Love</option>
+                    <option value="life">Life</option>
+                    <option value="mental-health">Mental Health</option>
+                    <option value="regrets">Regrets</option>
+                    <option value="embarassed-moments">Embarassed Moments</option>
+                </select>
+
+                <label for="confession">Confess here!</label>
+                <textarea id="confession" required></textarea>
+
+                <button type="submit">Share</button>
+            </form>
+        </div>
+    </div>
+
+<!-- Sign Up Modal -->
+<div id="signUpModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSignUpModal()">&times;</span>
+        <h2>Sign Up</h2>
+        <form id="signUpForm" name="sign-up-form" method="post">
+            <label for="signup-username">Username:</label>
+            <input type="text" name="user-name" id="signup-username" required>
+        
+            <label for="signup-password">Password:</label>
+            <input type="password" name="password" id="signup-password" required>
+        
+            <button type="submit">Sign Up</button>
+        </form>        
+    </div>
+</div>
+
+<!-- Sign In Modal -->
+<div id="signInModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSignInModal()">&times;</span>
+
+        <h2>Sign In</h2>
+        <form id="signInForm" name="sign-in-form" method="post">
+            <label for="signin-username">Username:</label>
+            <input type="text" name="login-username" id="signin-username" required>
+
+            <label for="signin-password">Password:</label>
+            <input type="password" name="login-pass" id="signin-password" required>
+
+            <button type="submit">Sign In</button>
+        </form>
+        <h3 style="text-align: center;">Don't have an account?<button class="signup-link" onclick="openSignUpModal()">SignUp</button>
+        </h3>
+    </div>
+</div>
+
+<hr color="grey">
+<footer>
+    
+    <div class="footer-container">
+        <div class="footer-column">
+            <h3>WhisperBoxx</h3>
+            <p>Stay anonymous - share your secrets, confessions, and stories!</p>
+            <div class="social-icons">
+                <a href="#"><i class='bx bxl-twitter'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+            </div>
+        </div>
+
+        <div class="footer-column">
+            <h3> About Platform</h3>
+            <ul>
+                <li><a href="#">How it works!</a></li>
+                <li><a href="#">Guidelines</a></li>
+                <li><a href="#"><strong>Features</strong></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Contact</h3>
+            <ul>
+                <li><a href="#"><Address>Arundelpet, Guntur, Andhra Pradesh, India</Address></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 WhisperBox. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
